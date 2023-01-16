@@ -1,0 +1,39 @@
+﻿<Window x:Class="HomeworkWpf19.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HomeworkWpf19"
+        xmlns:vm="clr-namespace:HomeworkWpf19.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="400">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="Радиус: " VerticalContentAlignment="Center"/>
+        <TextBox Grid.Column="1"
+                 Text="{Binding Path=Radius}"
+                 VerticalContentAlignment="Center"/>
+        <Button Grid.Row="1" 
+                Grid.ColumnSpan="2" 
+                Content="Рассчитать длину окружности"
+                Command="{Binding Path=CalcCommand}"
+                Height="40"
+                Margin="5"/>
+        <Label Grid.Row="2" Content="Длина окружности: " VerticalContentAlignment="Center"/>
+        <TextBlock Grid.Row="2" 
+                   Grid.Column="1"
+                   Text="{Binding Path=Lenght}"
+                   VerticalAlignment="Center"/>
+    </Grid>
+</Window>
